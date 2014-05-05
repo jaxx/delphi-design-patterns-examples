@@ -29,6 +29,7 @@ type
     pltvMenu: TJvPageListTreeView;
     plPages: TJvPageList;
     plspAbstractFactory: TJvStandardPage;
+    plspAdapter: TJvStandardPage;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   end;
@@ -70,6 +71,7 @@ end;
 procedure TfrmDemo.FormCreate(Sender: TObject);
 begin
   pltvMenu.FullExpand;
+  pltvMenu.Select(pltvMenu.Items[1]);
 end;
 
 end.

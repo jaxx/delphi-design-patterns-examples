@@ -2,8 +2,8 @@ object frmDemo: TfrmDemo
   Left = 0
   Top = 0
   Caption = 'Design Patterns demo'
-  ClientHeight = 586
-  ClientWidth = 958
+  ClientHeight = 452
+  ClientWidth = 751
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,7 +18,7 @@ object frmDemo: TfrmDemo
     Left = 0
     Top = 0
     Width = 241
-    Height = 586
+    Height = 452
     ShowButtons = True
     ShowLines = True
     PageDefault = 0
@@ -28,32 +28,38 @@ object frmDemo: TfrmDemo
     TabOrder = 0
     Items.NodeData = {
       0301000000440000000000000000000000FFFFFFFFFFFFFFFF00000000000000
-      000100000001134300720065006100740069006F006E0061006C002000500061
+      000200000001134300720065006100740069006F006E0061006C002000500061
       0074007400650072006E0073003E0000000000000000000000FFFFFFFFFFFFFF
       FF00000000000000000000000001104100620073007400720061006300740020
-      0046006100630074006F0072007900}
-    Items.Links = {020000000000000000000000}
+      0046006100630074006F00720079002C0000000000000000000000FFFFFFFFFF
+      FFFFFF00000000010000000000000001074100640061007000740065007200}
+    Items.Links = {03000000000000000000000001000000}
     ExplicitTop = 10
+    ExplicitHeight = 586
   end
   object plPages: TJvPageList
     Left = 241
     Top = 0
-    Width = 717
-    Height = 586
+    Width = 510
+    Height = 452
     ActivePage = plspAbstractFactory
     PropagateEnable = False
     Align = alClient
+    ExplicitWidth = 717
+    ExplicitHeight = 586
     object plspAbstractFactory: TJvStandardPage
       Left = 0
       Top = 0
-      Width = 717
-      Height = 586
+      Width = 510
+      Height = 452
       Caption = 'PageAbstractFactory'
       ExplicitLeft = 6
       ExplicitTop = 3
+      ExplicitWidth = 717
+      ExplicitHeight = 586
       object btnCreateCar: TButton
-        Left = 385
-        Top = 380
+        Left = 282
+        Top = 314
         Width = 114
         Height = 28
         Caption = 'Create car'
@@ -61,8 +67,8 @@ object frmDemo: TfrmDemo
         OnClick = btnCreateCarClick
       end
       object cbbFactorySelect: TComboBox
-        Left = 218
-        Top = 177
+        Left = 115
+        Top = 111
         Width = 281
         Height = 21
         ParentShowHint = False
@@ -75,13 +81,22 @@ object frmDemo: TfrmDemo
           'Mercedes-Benz factory')
       end
       object lstCarsCreated: TListBox
-        Left = 218
-        Top = 204
+        Left = 115
+        Top = 138
         Width = 281
         Height = 170
         ItemHeight = 13
         TabOrder = 2
       end
+    end
+    object plspAdapter: TJvStandardPage
+      Left = 0
+      Top = 0
+      Width = 510
+      Height = 452
+      Caption = 'PageAdapter'
+      ExplicitWidth = 0
+      ExplicitHeight = 0
     end
   end
 end
