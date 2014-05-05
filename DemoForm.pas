@@ -14,14 +14,23 @@ uses
   Vcl.Dialogs,
   Vcl.StdCtrls,
   AbstractCarFactory,
-  Car;
+  Car,
+  Vcl.ComCtrls,
+  JvExComCtrls,
+  JvPageListTreeView,
+  JvPageList,
+  JvExControls;
 
 type
   TfrmDemo = class(TForm)
     cbbFactorySelect: TComboBox;
     btnCreateCar: TButton;
     lstCarsCreated: TListBox;
+    pltvMenu: TJvPageListTreeView;
+    plPages: TJvPageList;
+    plspAbstractFactory: TJvStandardPage;
     procedure btnCreateCarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   end;
 
 var
@@ -56,6 +65,11 @@ begin
     car.Free;
     carFactory.Free;
   end;
+end;
+
+procedure TfrmDemo.FormCreate(Sender: TObject);
+begin
+  pltvMenu.FullExpand;
 end;
 
 end.
