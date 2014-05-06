@@ -95,8 +95,44 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageAdapter'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitLeft = -80
+      ExplicitTop = -112
+      object lblAdapterInfo: TLabel
+        Left = 48
+        Top = 40
+        Width = 221
+        Height = 26
+        Caption = 
+          '* Last old customers ID at year 2000 = 15722'#13#10'* Last old custome' +
+          'rs ID in database   = 30000'
+      end
+      object btnAddCustomer: TSpeedButton
+        Left = 366
+        Top = 314
+        Width = 114
+        Height = 28
+        Caption = 'Add customer'
+        OnClick = btnAddCustomerClick
+      end
+      object edtCustomerId: TEdit
+        Left = 318
+        Top = 111
+        Width = 161
+        Height = 21
+        NumbersOnly = True
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        TextHint = 'Enter old customers ID'
+      end
+      object lstCustomers: TListBox
+        Left = 30
+        Top = 138
+        Width = 449
+        Height = 170
+        ItemHeight = 13
+        TabOrder = 1
+      end
     end
   end
 end

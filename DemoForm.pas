@@ -13,13 +13,11 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.StdCtrls,
-  AbstractCarFactory,
-  Car,
   Vcl.ComCtrls,
   JvExComCtrls,
   JvPageListTreeView,
   JvPageList,
-  JvExControls;
+  JvExControls, Vcl.Buttons;
 
 type
   TfrmDemo = class(TForm)
@@ -30,8 +28,13 @@ type
     plPages: TJvPageList;
     plspAbstractFactory: TJvStandardPage;
     plspAdapter: TJvStandardPage;
+    lblAdapterInfo: TLabel;
+    edtCustomerId: TEdit;
+    lstCustomers: TListBox;
+    btnAddCustomer: TSpeedButton;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnAddCustomerClick(Sender: TObject);
   end;
 
 var
@@ -39,7 +42,38 @@ var
 
 implementation
 
+uses
+  AbstractCarFactory,
+  Car,
+  AdaptedCustomer,
+  NewCustomer;
+
 {$R *.dfm}
+
+procedure TfrmDemo.btnAddCustomerClick(Sender: TObject);
+var
+  customerID: Integer;
+  customer: TNewCustomer;
+
+begin
+  if string(edtCustomerId.Text).IsEmpty then
+    Exit;
+
+  customerID := StrToInt(edtCustomerId.Text);
+
+  customer := TAdaptedCustomer.GetCustomer(customerID);
+  try
+    try
+      lstCustomers.Items.Add(customer.ToString);
+    except on E: Exception do
+      ShowMessage(E.Message);
+    end;
+  finally
+    customer.Free;
+  end;
+
+  edtCustomerId.Clear;
+end;
 
 procedure TfrmDemo.btnCreateCarClick(Sender: TObject);
 var
