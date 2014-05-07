@@ -27,36 +27,32 @@ object frmDemo: TfrmDemo
     Indent = 19
     TabOrder = 0
     Items.NodeData = {
-      0301000000440000000000000000000000FFFFFFFFFFFFFFFF00000000000000
-      000200000001134300720065006100740069006F006E0061006C002000500061
+      0302000000440000000000000000000000FFFFFFFFFFFFFFFF00000000000000
+      000100000001134300720065006100740069006F006E0061006C002000500061
       0074007400650072006E0073003E0000000000000000000000FFFFFFFFFFFFFF
       FF00000000000000000000000001104100620073007400720061006300740020
-      0046006100630074006F00720079002C0000000000000000000000FFFFFFFFFF
-      FFFFFF00000000010000000000000001074100640061007000740065007200}
-    Items.Links = {03000000000000000000000001000000}
-    ExplicitTop = 10
-    ExplicitHeight = 586
+      0046006100630074006F0072007900440000000000000000000000FFFFFFFFFF
+      FFFFFF0000000000000000020000000113530074007200750063007400750072
+      0061006C0020005000610074007400650072006E0073002C0000000000000000
+      000000FFFFFFFFFFFFFFFF000000000000000000000000010741006400610070
+      007400650072002A0000000000000000000000FFFFFFFFFFFFFFFF0000000002
+      000000000000000106420072006900640067006500}
+    Items.Links = {050000000000000000000000000000000000000002000000}
   end
   object plPages: TJvPageList
     Left = 241
     Top = 0
     Width = 510
     Height = 452
-    ActivePage = plspAbstractFactory
+    ActivePage = plspBridge
     PropagateEnable = False
     Align = alClient
-    ExplicitWidth = 717
-    ExplicitHeight = 586
     object plspAbstractFactory: TJvStandardPage
       Left = 0
       Top = 0
       Width = 510
       Height = 452
       Caption = 'PageAbstractFactory'
-      ExplicitLeft = 6
-      ExplicitTop = 3
-      ExplicitWidth = 717
-      ExplicitHeight = 586
       object btnCreateCar: TButton
         Left = 282
         Top = 314
@@ -95,8 +91,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageAdapter'
-      ExplicitLeft = -80
-      ExplicitTop = -112
       object lblAdapterInfo: TLabel
         Left = 48
         Top = 40
@@ -133,6 +127,15 @@ object frmDemo: TfrmDemo
         ItemHeight = 13
         TabOrder = 1
       end
+    end
+    object plspBridge: TJvStandardPage
+      Left = 0
+      Top = 0
+      Width = 510
+      Height = 452
+      Caption = 'PageBridge'
+      ExplicitWidth = 0
+      ExplicitHeight = 0
     end
   end
 end

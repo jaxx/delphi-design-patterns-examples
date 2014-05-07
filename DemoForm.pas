@@ -32,6 +32,7 @@ type
     edtCustomerId: TEdit;
     lstCustomers: TListBox;
     btnAddCustomer: TSpeedButton;
+    plspBridge: TJvStandardPage;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
