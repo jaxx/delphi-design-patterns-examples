@@ -70,6 +70,21 @@ uses
 
 {$R *.dfm}
 
+procedure TfrmDemo.FormCreate(Sender: TObject);
+begin
+  FSwitchAbstraction := TSwitchAbstraction.Create;
+
+  FKitchenSwitch := TKitchenSwitch.Create;
+  FBathroomSwitch := TBathroomSwitch.Create;
+end;
+
+procedure TfrmDemo.FormDestroy(Sender: TObject);
+begin
+  FSwitchAbstraction.Free;
+end;
+
+{ Adapter }
+
 procedure TfrmDemo.btnAddCustomerClick(Sender: TObject);
 var
   customerID: Integer;
@@ -94,6 +109,8 @@ begin
 
   edtCustomerId.Clear;
 end;
+
+{ AbstractFactory }
 
 procedure TfrmDemo.btnCreateCarClick(Sender: TObject);
 var
@@ -122,20 +139,7 @@ begin
   end;
 end;
 
-procedure TfrmDemo.FormCreate(Sender: TObject);
-begin
-  pltvMenu.FullExpand;
-  pltvMenu.Select(pltvMenu.Items[1]);
-
-  FSwitchAbstraction := TSwitchAbstraction.Create;
-  FKitchenSwitch := TKitchenSwitch.Create;
-  FBathroomSwitch := TBathroomSwitch.Create;
-end;
-
-procedure TfrmDemo.FormDestroy(Sender: TObject);
-begin
-  FSwitchAbstraction.Free;
-end;
+{ Bridge }
 
 procedure TfrmDemo.swBathroomOff(Sender: TObject);
 begin
