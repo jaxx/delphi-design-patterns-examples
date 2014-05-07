@@ -12,33 +12,9 @@ object frmDemo: TfrmDemo
   Font.Style = []
   OldCreateOrder = False
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
-  object pltvMenu: TJvPageListTreeView
-    Left = 0
-    Top = 0
-    Width = 241
-    Height = 452
-    ShowButtons = True
-    ShowLines = True
-    PageDefault = 0
-    PageList = plPages
-    Align = alLeft
-    Indent = 19
-    TabOrder = 0
-    Items.NodeData = {
-      0302000000440000000000000000000000FFFFFFFFFFFFFFFF00000000000000
-      000100000001134300720065006100740069006F006E0061006C002000500061
-      0074007400650072006E0073003E0000000000000000000000FFFFFFFFFFFFFF
-      FF00000000000000000000000001104100620073007400720061006300740020
-      0046006100630074006F0072007900440000000000000000000000FFFFFFFFFF
-      FFFFFF0000000000000000020000000113530074007200750063007400750072
-      0061006C0020005000610074007400650072006E0073002C0000000000000000
-      000000FFFFFFFFFFFFFFFF000000000000000000000000010741006400610070
-      007400650072002A0000000000000000000000FFFFFFFFFFFFFFFF0000000002
-      000000000000000106420072006900640067006500}
-    Items.Links = {050000000000000000000000000000000000000002000000}
-  end
   object plPages: TJvPageList
     Left = 241
     Top = 0
@@ -136,6 +112,73 @@ object frmDemo: TfrmDemo
       Caption = 'PageBridge'
       ExplicitWidth = 0
       ExplicitHeight = 0
+      object lblKitchenSwitch: TLabel
+        Left = 114
+        Top = 297
+        Width = 68
+        Height = 13
+        Caption = 'Kitchen switch'
+      end
+      object lblBathroomSwitch: TLabel
+        Left = 314
+        Top = 297
+        Width = 79
+        Height = 13
+        Caption = 'Bathroom switch'
+      end
+      object lstSwitchInfo: TListBox
+        Left = 87
+        Top = 77
+        Width = 337
+        Height = 209
+        ItemHeight = 13
+        TabOrder = 0
+      end
+      object swKitchen: TJvSwitch
+        Left = 122
+        Top = 316
+        Width = 50
+        Height = 60
+        Caption = 'Kitchen switch'
+        TabOrder = 1
+        OnClick = swKitchenClick
+      end
+      object swBathroom: TJvSwitch
+        Left = 330
+        Top = 316
+        Width = 50
+        Height = 60
+        Caption = 'Bathroom switch'
+        TabOrder = 2
+        OnClick = swBathroomClick
+      end
     end
+  end
+  object pltvMenu: TJvPageListTreeView
+    Left = 0
+    Top = 0
+    Width = 241
+    Height = 452
+    ShowButtons = True
+    ShowLines = True
+    PageDefault = 0
+    PageList = plPages
+    Align = alLeft
+    Indent = 19
+    TabOrder = 1
+    Items.NodeData = {
+      0303000000440000000000000000000000FFFFFFFFFFFFFFFF00000000000000
+      000100000001134300720065006100740069006F006E0061006C002000500061
+      0074007400650072006E0073003E0000000000000000000000FFFFFFFFFFFFFF
+      FF00000000000000000000000001104100620073007400720061006300740020
+      0046006100630074006F0072007900440000000000000000000000FFFFFFFFFF
+      FFFFFF0000000000000000020000000113530074007200750063007400750072
+      0061006C0020005000610074007400650072006E0073002C0000000000000000
+      000000FFFFFFFFFFFFFFFF000000000100000000000000010741006400610070
+      007400650072002A0000000000000000000000FFFFFFFFFFFFFFFF0000000002
+      0000000000000001064200720069006400670065004400000000000000000000
+      00FFFFFFFFFFFFFFFF0000000000000000000000000113420065006800610076
+      0069006F00720061006C0020005000610074007400650072006E007300}
+    Items.Links = {06000000000000000000000000000000010000000200000000000000}
   end
 end

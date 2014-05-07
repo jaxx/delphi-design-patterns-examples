@@ -17,7 +17,10 @@ uses
   JvExComCtrls,
   JvPageListTreeView,
   JvPageList,
-  JvExControls, Vcl.Buttons;
+  JvExControls,
+  Vcl.Buttons,
+  JvSwitch,
+  SwitchAbstraction;
 
 type
   TfrmDemo = class(TForm)
@@ -33,9 +36,20 @@ type
     lstCustomers: TListBox;
     btnAddCustomer: TSpeedButton;
     plspBridge: TJvStandardPage;
+    lstSwitchInfo: TListBox;
+    swKitchen: TJvSwitch;
+    swBathroom: TJvSwitch;
+    lblKitchenSwitch: TLabel;
+    lblBathroomSwitch: TLabel;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
+    procedure btnKitchenSwitchClick(Sender: TObject);
+    procedure swKitchenClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure swBathroomClick(Sender: TObject);
+  private
+    switchAbstraction: TSwitchAbstraction;
   end;
 
 var
@@ -47,9 +61,26 @@ uses
   AbstractCarFactory,
   Car,
   AdaptedCustomer,
-  NewCustomer;
+  NewCustomer,
+  Switch;
 
 {$R *.dfm}
+
+procedure TfrmDemo.btnKitchenSwitchClick(Sender: TObject);
+var
+  switchAbstraction: TSwitchAbstraction;
+
+begin
+  switchAbstraction := TSwitchAbstraction.Create;
+
+
+
+  switchAbstraction.Switch := TBathroomSwitch.Create;
+  switchAbstraction.TurnOn;
+  switchAbstraction.TurnOff;
+
+  switchAbstraction.Free;
+end;
 
 procedure TfrmDemo.btnAddCustomerClick(Sender: TObject);
 var
@@ -107,6 +138,33 @@ procedure TfrmDemo.FormCreate(Sender: TObject);
 begin
   pltvMenu.FullExpand;
   pltvMenu.Select(pltvMenu.Items[1]);
+
+  switchAbstraction := TSwitchAbstraction.Create;
+end;
+
+procedure TfrmDemo.FormDestroy(Sender: TObject);
+begin
+  switchAbstraction.Free;
+end;
+
+procedure TfrmDemo.swBathroomClick(Sender: TObject);
+begin
+  switchAbstraction.Switch := TBathroomSwitch.Create;
+
+  if swBathroom.StateOn then
+    lstSwitchInfo.Items.Add(switchAbstraction.TurnOff)
+  else
+    lstSwitchInfo.Items.Add(switchAbstraction.TurnOn)
+end;
+
+procedure TfrmDemo.swKitchenClick(Sender: TObject);
+begin
+  switchAbstraction.Switch := TKitchenSwitch.Create;
+
+  if swKitchen.StateOn then
+    lstSwitchInfo.Items.Add(switchAbstraction.TurnOff)
+  else
+    lstSwitchInfo.Items.Add(switchAbstraction.TurnOn)
 end;
 
 end.
