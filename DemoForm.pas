@@ -42,6 +42,7 @@ type
     swBathroom: TJvSwitch;
     lblKitchenSwitch: TLabel;
     lblBathroomSwitch: TLabel;
+    plspBuilder: TJvStandardPage;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
