@@ -141,7 +141,8 @@ object frmDemo: TfrmDemo
         Height = 60
         Caption = 'Kitchen switch'
         TabOrder = 1
-        OnClick = swKitchenClick
+        OnOn = swKitchenOn
+        OnOff = swKitchenOff
       end
       object swBathroom: TJvSwitch
         Left = 330
@@ -150,7 +151,8 @@ object frmDemo: TfrmDemo
         Height = 60
         Caption = 'Bathroom switch'
         TabOrder = 2
-        OnClick = swBathroomClick
+        OnOn = swBathroomOn
+        OnOff = swBathroomOff
       end
     end
   end

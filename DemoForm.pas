@@ -20,6 +20,7 @@ uses
   JvExControls,
   Vcl.Buttons,
   JvSwitch,
+  SwitchInterface,
   SwitchAbstraction;
 
 type
@@ -44,12 +45,15 @@ type
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
-    procedure btnKitchenSwitchClick(Sender: TObject);
-    procedure swKitchenClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-    procedure swBathroomClick(Sender: TObject);
+    procedure swKitchenOn(Sender: TObject);
+    procedure swKitchenOff(Sender: TObject);
+    procedure swBathroomOn(Sender: TObject);
+    procedure swBathroomOff(Sender: TObject);
   private
-    switchAbstraction: TSwitchAbstraction;
+    FSwitchAbstraction: TSwitchAbstraction;
+    FKitchenSwitch: ISwitch;
+    FBathroomSwitch: ISwitch;
   end;
 
 var
@@ -65,22 +69,6 @@ uses
   Switch;
 
 {$R *.dfm}
-
-procedure TfrmDemo.btnKitchenSwitchClick(Sender: TObject);
-var
-  switchAbstraction: TSwitchAbstraction;
-
-begin
-  switchAbstraction := TSwitchAbstraction.Create;
-
-
-
-  switchAbstraction.Switch := TBathroomSwitch.Create;
-  switchAbstraction.TurnOn;
-  switchAbstraction.TurnOff;
-
-  switchAbstraction.Free;
-end;
 
 procedure TfrmDemo.btnAddCustomerClick(Sender: TObject);
 var
@@ -139,32 +127,38 @@ begin
   pltvMenu.FullExpand;
   pltvMenu.Select(pltvMenu.Items[1]);
 
-  switchAbstraction := TSwitchAbstraction.Create;
+  FSwitchAbstraction := TSwitchAbstraction.Create;
+  FKitchenSwitch := TKitchenSwitch.Create;
+  FBathroomSwitch := TBathroomSwitch.Create;
 end;
 
 procedure TfrmDemo.FormDestroy(Sender: TObject);
 begin
-  switchAbstraction.Free;
+  FSwitchAbstraction.Free;
 end;
 
-procedure TfrmDemo.swBathroomClick(Sender: TObject);
+procedure TfrmDemo.swBathroomOff(Sender: TObject);
 begin
-  switchAbstraction.Switch := TBathroomSwitch.Create;
-
-  if swBathroom.StateOn then
-    lstSwitchInfo.Items.Add(switchAbstraction.TurnOff)
-  else
-    lstSwitchInfo.Items.Add(switchAbstraction.TurnOn)
+  FSwitchAbstraction.Switch := FBathroomSwitch;
+  lstSwitchInfo.Items.Add(FSwitchAbstraction.TurnOff);
 end;
 
-procedure TfrmDemo.swKitchenClick(Sender: TObject);
+procedure TfrmDemo.swBathroomOn(Sender: TObject);
 begin
-  switchAbstraction.Switch := TKitchenSwitch.Create;
+  FSwitchAbstraction.Switch := FBathroomSwitch;
+  lstSwitchInfo.Items.Add(FSwitchAbstraction.TurnOn);
+end;
 
-  if swKitchen.StateOn then
-    lstSwitchInfo.Items.Add(switchAbstraction.TurnOff)
-  else
-    lstSwitchInfo.Items.Add(switchAbstraction.TurnOn)
+procedure TfrmDemo.swKitchenOff(Sender: TObject);
+begin
+  FSwitchAbstraction.Switch := FKitchenSwitch;
+  lstSwitchInfo.Items.Add(FSwitchAbstraction.TurnOff);
+end;
+
+procedure TfrmDemo.swKitchenOn(Sender: TObject);
+begin
+  FSwitchAbstraction.Switch := FKitchenSwitch;
+  lstSwitchInfo.Items.Add(FSwitchAbstraction.TurnOn);
 end;
 
 end.
