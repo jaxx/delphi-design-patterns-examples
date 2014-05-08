@@ -43,6 +43,9 @@ type
     lblKitchenSwitch: TLabel;
     lblBathroomSwitch: TLabel;
     plspBuilder: TJvStandardPage;
+    btnMeal1: TButton;
+    lstMeals: TListBox;
+    btnMeal2: TButton;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
@@ -51,6 +54,8 @@ type
     procedure swKitchenOff(Sender: TObject);
     procedure swBathroomOn(Sender: TObject);
     procedure swBathroomOff(Sender: TObject);
+    procedure btnMeal1Click(Sender: TObject);
+    procedure btnMeal2Click(Sender: TObject);
   private
     FSwitchAbstraction: TSwitchAbstraction;
     FKitchenSwitch: ISwitch;
@@ -67,7 +72,10 @@ uses
   Car,
   AdaptedCustomer,
   NewCustomer,
-  Switch;
+  Switch,
+  Director,
+  Builder,
+  BuilderInterfaces;
 
 {$R *.dfm}
 
@@ -82,6 +90,48 @@ end;
 procedure TfrmDemo.FormDestroy(Sender: TObject);
 begin
   FSwitchAbstraction.Free;
+end;
+
+{ Builder }
+
+procedure TfrmDemo.btnMeal1Click(Sender: TObject);
+var
+  director: TDirector;
+  mealBuilder1: IBuilder;
+  product: IProduct;
+
+begin
+  director := TDirector.Create;
+
+  try
+    mealBuilder1 := TMealBuilder1.Create;
+    director.Construct(mealBuilder1);
+    product := mealBuilder1.GetResult;
+
+    lstMeals.Items.Add(product.Display)
+  finally
+    director.Free;
+  end;
+end;
+
+procedure TfrmDemo.btnMeal2Click(Sender: TObject);
+var
+  director: TDirector;
+  mealBuilder2: IBuilder;
+  product: IProduct;
+
+begin
+  director := TDirector.Create;
+
+  try
+    mealBuilder2 := TMealBuilder2.Create;
+    director.Construct(mealBuilder2);
+    product := mealBuilder2.GetResult;
+
+    lstMeals.Items.Add(product.Display)
+  finally
+    director.Free;
+  end;
 end;
 
 { Adapter }

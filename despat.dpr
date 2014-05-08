@@ -10,7 +10,11 @@ uses
   AdaptedCustomer in 'Adapter\AdaptedCustomer.pas',
   SwitchAbstraction in 'Bridge\SwitchAbstraction.pas',
   Switch in 'Bridge\Switch.pas',
-  SwitchInterface in 'Bridge\SwitchInterface.pas';
+  SwitchInterface in 'Bridge\SwitchInterface.pas',
+  Builder in 'Builder\Builder.pas',
+  Product in 'Builder\Product.pas',
+  BuilderInterfaces in 'Builder\BuilderInterfaces.pas',
+  Director in 'Builder\Director.pas';
 
 {$R *.res}
 

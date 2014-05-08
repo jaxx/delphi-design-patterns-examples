@@ -110,8 +110,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageBridge'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object lblKitchenSwitch: TLabel
         Left = 114
         Top = 297
@@ -161,8 +159,32 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageBuilder'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      object btnMeal1: TButton
+        Left = 115
+        Top = 317
+        Width = 137
+        Height = 33
+        Caption = 'Make meal'
+        TabOrder = 0
+        OnClick = btnMeal1Click
+      end
+      object lstMeals: TListBox
+        Left = 66
+        Top = 102
+        Width = 377
+        Height = 209
+        ItemHeight = 13
+        TabOrder = 1
+      end
+      object btnMeal2: TButton
+        Left = 258
+        Top = 317
+        Width = 139
+        Height = 33
+        Caption = 'Make kids meal'
+        TabOrder = 2
+        OnClick = btnMeal2Click
+      end
     end
   end
   object pltvMenu: TJvPageListTreeView
