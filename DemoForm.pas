@@ -46,6 +46,7 @@ type
     btnMeal1: TButton;
     lstMeals: TListBox;
     btnMeal2: TButton;
+    plspChainOfResponsibility: TJvStandardPage;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
