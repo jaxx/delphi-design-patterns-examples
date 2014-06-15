@@ -21,7 +21,8 @@ uses
   Vcl.Buttons,
   JvSwitch,
   SwitchInterface,
-  SwitchAbstraction;
+  SwitchAbstraction,
+  Handler;
 
 type
   TfrmDemo = class(TForm)
@@ -47,6 +48,8 @@ type
     lstMeals: TListBox;
     btnMeal2: TButton;
     plspChainOfResponsibility: TJvStandardPage;
+    btnHandleRequests: TButton;
+    lstHandlerOutput: TListBox;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
@@ -57,10 +60,14 @@ type
     procedure swBathroomOff(Sender: TObject);
     procedure btnMeal1Click(Sender: TObject);
     procedure btnMeal2Click(Sender: TObject);
+    procedure btnHandleRequestsClick(Sender: TObject);
   private
     FSwitchAbstraction: TSwitchAbstraction;
     FKitchenSwitch: ISwitch;
     FBathroomSwitch: ISwitch;
+    FConcreteHandler1: THandler;
+    FConcreteHandler2: THandler;
+    FConcreteHandler3: THandler;
   end;
 
 var
@@ -86,11 +93,19 @@ begin
 
   FKitchenSwitch := TKitchenSwitch.Create;
   FBathroomSwitch := TBathroomSwitch.Create;
+
+  FConcreteHandler1 := TConcreteHandler1.Create;
+  FConcreteHandler2 := TConcreteHandler2.Create;
+  FConcreteHandler3 := TConcreteHandler3.Create;
 end;
 
 procedure TfrmDemo.FormDestroy(Sender: TObject);
 begin
   FSwitchAbstraction.Free;
+
+  FConcreteHandler3.Free;
+  FConcreteHandler2.Free;
+  FConcreteHandler1.Free;
 end;
 
 { Builder }
@@ -189,6 +204,21 @@ begin
     car.Free;
     carFactory.Free;
   end;
+end;
+
+procedure TfrmDemo.btnHandleRequestsClick(Sender: TObject);
+var
+  requests: TArray<SmallInt>;
+  request: SmallInt;
+
+begin
+  requests := TArray<SmallInt>.Create(2, 5, 14, 22, 18, 3, 27, 20);
+
+  FConcreteHandler1.Successor := FConcreteHandler2;
+  FConcreteHandler2.Successor := FConcreteHandler3;
+
+  for request in requests do
+    lstHandlerOutput.Items.Add(FConcreteHandler1.HandleRequest(request));
 end;
 
 { Bridge }

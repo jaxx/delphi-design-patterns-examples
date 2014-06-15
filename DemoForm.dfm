@@ -20,7 +20,7 @@ object frmDemo: TfrmDemo
     Top = 0
     Width = 510
     Height = 452
-    ActivePage = plspBridge
+    ActivePage = plspChainOfResponsibility
     PropagateEnable = False
     Align = alClient
     object plspAbstractFactory: TJvStandardPage
@@ -191,7 +191,24 @@ object frmDemo: TfrmDemo
       Top = 0
       Width = 510
       Height = 452
-      Caption = 'plspChainOfResponsibility'
+      Caption = 'PageChainOfResponsibility'
+      object btnHandleRequests: TButton
+        Left = 168
+        Top = 280
+        Width = 137
+        Height = 33
+        Caption = 'btnHandleRequests'
+        TabOrder = 0
+        OnClick = btnHandleRequestsClick
+      end
+      object lstHandlerOutput: TListBox
+        Left = 136
+        Top = 56
+        Width = 209
+        Height = 209
+        ItemHeight = 13
+        TabOrder = 1
+      end
     end
   end
   object pltvMenu: TJvPageListTreeView
@@ -220,11 +237,11 @@ object frmDemo: TfrmDemo
       000000FFFFFFFFFFFFFFFF000000000200000000000000010642007200690064
       0067006500440000000000000000000000FFFFFFFFFFFFFFFF00000000000000
       000100000001134200650068006100760069006F00720061006C002000500061
-      0074007400650072006E0073004E0000000000000000000000FFFFFFFFFFFFFF
-      FF000000000400000000000000011843006800610069006E00660020006F0066
-      00200052006500730070006F006E0073006900620069006C00690074007900}
+      0074007400650072006E0073004C0000000000000000000000FFFFFFFFFFFFFF
+      FF000000000000000000000000011743006800610069006E0020006F00660020
+      0052006500730070006F006E0073006900620069006C00690074007900}
     Items.Links = {
       0800000000000000000000000300000000000000010000000200000000000000
-      04000000}
+      00000000}
   end
 end

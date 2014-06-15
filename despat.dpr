@@ -14,7 +14,8 @@ uses
   Builder in 'Builder\Builder.pas',
   Product in 'Builder\Product.pas',
   BuilderInterfaces in 'Builder\BuilderInterfaces.pas',
-  Director in 'Builder\Director.pas';
+  Director in 'Builder\Director.pas',
+  Handler in 'ChainOfResponsibility\Handler.pas';
 
 {$R *.res}
 
