@@ -206,21 +206,6 @@ begin
   end;
 end;
 
-procedure TfrmDemo.btnHandleRequestsClick(Sender: TObject);
-var
-  requests: TArray<SmallInt>;
-  request: SmallInt;
-
-begin
-  requests := TArray<SmallInt>.Create(2, 5, 14, 22, 18, 3, 27, 20);
-
-  FConcreteHandler1.Successor := FConcreteHandler2;
-  FConcreteHandler2.Successor := FConcreteHandler3;
-
-  for request in requests do
-    lstHandlerOutput.Items.Add(FConcreteHandler1.HandleRequest(request));
-end;
-
 { Bridge }
 
 procedure TfrmDemo.swBathroomOff(Sender: TObject);
@@ -245,6 +230,23 @@ procedure TfrmDemo.swKitchenOn(Sender: TObject);
 begin
   FSwitchAbstraction.Switch := FKitchenSwitch;
   lstSwitchInfo.Items.Add(FSwitchAbstraction.TurnOn);
+end;
+
+{ Chain Of Responsibility }
+
+procedure TfrmDemo.btnHandleRequestsClick(Sender: TObject);
+var
+  requests: TArray<SmallInt>;
+  request: SmallInt;
+
+begin
+  requests := TArray<SmallInt>.Create(2, 5, 14, 22, 18, 3, 27, 20);
+
+  FConcreteHandler1.Successor := FConcreteHandler2;
+  FConcreteHandler2.Successor := FConcreteHandler3;
+
+  for request in requests do
+    lstHandlerOutput.Items.Add(FConcreteHandler1.HandleRequest(request));
 end;
 
 end.

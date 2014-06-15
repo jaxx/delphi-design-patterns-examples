@@ -193,18 +193,18 @@ object frmDemo: TfrmDemo
       Height = 452
       Caption = 'PageChainOfResponsibility'
       object btnHandleRequests: TButton
-        Left = 168
-        Top = 280
-        Width = 137
+        Left = 256
+        Top = 271
+        Width = 185
         Height = 33
-        Caption = 'btnHandleRequests'
+        Caption = 'Handle Requests'
         TabOrder = 0
         OnClick = btnHandleRequestsClick
       end
       object lstHandlerOutput: TListBox
-        Left = 136
+        Left = 48
         Top = 56
-        Width = 209
+        Width = 393
         Height = 209
         ItemHeight = 13
         TabOrder = 1
