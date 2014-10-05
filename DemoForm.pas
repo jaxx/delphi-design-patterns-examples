@@ -69,6 +69,9 @@ type
     plspStrategy: TJvStandardPage;
     plspTemplateMethod: TJvStandardPage;
     plspVisitor: TJvStandardPage;
+    edtOrderName: TEdit;
+    btnAddOrder: TButton;
+    lstCookWorkLog: TListBox;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
@@ -80,6 +83,8 @@ type
     procedure btnMeal1Click(Sender: TObject);
     procedure btnMeal2Click(Sender: TObject);
     procedure btnHandleRequestsClick(Sender: TObject);
+    procedure edtOrderNameChange(Sender: TObject);
+    procedure btnAddOrderClick(Sender: TObject);
   private
     FSwitchAbstraction: TSwitchAbstraction;
     FKitchenSwitch: ISwitch;
@@ -102,7 +107,10 @@ uses
   Switch,
   Director,
   Builder,
-  BuilderInterfaces;
+  BuilderInterfaces,
+  Invoker,
+  Command,
+  Receiver;
 
 {$R *.dfm}
 
@@ -266,6 +274,38 @@ begin
 
   for request in requests do
     lstHandlerOutput.Items.Add(FConcreteHandler1.HandleRequest(request));
+end;
+
+{ Command }
+
+procedure TfrmDemo.edtOrderNameChange(Sender: TObject);
+begin
+  btnAddOrder.Enabled := Length(edtOrderName.Text) > 3;
+end;
+
+procedure TfrmDemo.btnAddOrderClick(Sender: TObject);
+var
+  receiver: TReceiver;
+  command: TCommand;
+  invoker: TInvoker;
+
+begin
+  receiver := TReceiver.Create(edtOrderName.Text);
+  command := TConcreteCommand.Create(receiver);
+  invoker := TInvoker.Create;
+
+  try
+    invoker.SetCommand(command);
+
+    lstCookWorkLog.Items.Add(invoker.ExecuteCommand);
+  finally
+    invoker.Free;
+    command.Free;
+    receiver.Free;
+  end;
+
+  edtOrderName.SetFocus;
+  edtOrderName.Clear;
 end;
 
 end.

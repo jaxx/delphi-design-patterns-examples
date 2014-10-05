@@ -20,7 +20,7 @@ object frmDemo: TfrmDemo
     Top = 0
     Width = 510
     Height = 452
-    ActivePage = plspVisitor
+    ActivePage = plspCommand
     PropagateEnable = False
     Align = alClient
     object plspAbstractFactory: TJvStandardPage
@@ -163,7 +163,7 @@ object frmDemo: TfrmDemo
         Left = 115
         Top = 317
         Width = 137
-        Height = 33
+        Height = 28
         Caption = 'Make meal'
         TabOrder = 0
         OnClick = btnMeal1Click
@@ -180,7 +180,7 @@ object frmDemo: TfrmDemo
         Left = 258
         Top = 317
         Width = 139
-        Height = 33
+        Height = 28
         Caption = 'Make kids meal'
         TabOrder = 2
         OnClick = btnMeal2Click
@@ -196,7 +196,7 @@ object frmDemo: TfrmDemo
         Left = 256
         Top = 271
         Width = 185
-        Height = 33
+        Height = 28
         Caption = 'Handle Requests'
         TabOrder = 0
         OnClick = btnHandleRequestsClick
@@ -216,8 +216,36 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageCommand'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      object edtOrderName: TEdit
+        Left = 86
+        Top = 147
+        Width = 186
+        Height = 21
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        TextHint = 'Type order name here...'
+        OnChange = edtOrderNameChange
+      end
+      object btnAddOrder: TButton
+        Left = 278
+        Top = 144
+        Width = 145
+        Height = 28
+        Caption = 'Add new order'
+        Default = True
+        Enabled = False
+        TabOrder = 1
+        OnClick = btnAddOrderClick
+      end
+      object lstCookWorkLog: TListBox
+        Left = 86
+        Top = 178
+        Width = 337
+        Height = 129
+        ItemHeight = 13
+        TabOrder = 2
+      end
     end
     object plspFactoryMethod: TJvStandardPage
       Left = 0
@@ -225,8 +253,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageFactoryMethod'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspObjectPool: TJvStandardPage
       Left = 0
@@ -234,8 +260,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageObjectPool'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspPrototype: TJvStandardPage
       Left = 0
@@ -243,8 +267,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PagePrototype'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspSingleton: TJvStandardPage
       Left = 0
@@ -252,8 +274,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageSingleton'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspComposite: TJvStandardPage
       Left = 0
@@ -261,8 +281,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageComposite'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspDecorator: TJvStandardPage
       Left = 0
@@ -270,8 +288,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageDecorator'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspFacade: TJvStandardPage
       Left = 0
@@ -279,8 +295,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageFacade'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspFlyweight: TJvStandardPage
       Left = 0
@@ -288,8 +302,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageFlyweight'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspPrivateClassData: TJvStandardPage
       Left = 0
@@ -297,8 +309,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PagePrivateClassData'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspProxy: TJvStandardPage
       Left = 0
@@ -306,8 +316,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageProxy'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspInterpreter: TJvStandardPage
       Left = 0
@@ -315,8 +323,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageInterpreter'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspIterator: TJvStandardPage
       Left = 0
@@ -324,8 +330,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageIterator'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspMediator: TJvStandardPage
       Left = 0
@@ -333,8 +337,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageMediator'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspMemento: TJvStandardPage
       Left = 0
@@ -342,8 +344,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageMemento'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspNullObject: TJvStandardPage
       Left = 0
@@ -351,8 +351,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageNullObject'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspObserver: TJvStandardPage
       Left = 0
@@ -360,8 +358,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageObserver'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspState: TJvStandardPage
       Left = 0
@@ -369,8 +365,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageState'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspStrategy: TJvStandardPage
       Left = 0
@@ -378,8 +372,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageStrategy'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspTemplateMethod: TJvStandardPage
       Left = 0
@@ -387,8 +379,6 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageTemplateMethod'
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
     object plspVisitor: TJvStandardPage
       Left = 0

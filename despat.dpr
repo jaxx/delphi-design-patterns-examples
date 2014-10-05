@@ -15,7 +15,10 @@ uses
   Product in 'Builder\Product.pas',
   BuilderInterfaces in 'Builder\BuilderInterfaces.pas',
   Director in 'Builder\Director.pas',
-  Handler in 'ChainOfResponsibility\Handler.pas';
+  Handler in 'ChainOfResponsibility\Handler.pas',
+  Command in 'Command\Command.pas',
+  Receiver in 'Command\Receiver.pas',
+  Invoker in 'Command\Invoker.pas';
 
 {$R *.res}
 
