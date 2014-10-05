@@ -3,8 +3,6 @@ unit DemoForm;
 interface
 
 uses
-  Winapi.Windows,
-  Winapi.Messages,
   System.SysUtils,
   System.Variants,
   System.Classes,
@@ -31,25 +29,46 @@ type
     lstCarsCreated: TListBox;
     pltvMenu: TJvPageListTreeView;
     plPages: TJvPageList;
-    plspAbstractFactory: TJvStandardPage;
-    plspAdapter: TJvStandardPage;
     lblAdapterInfo: TLabel;
     edtCustomerId: TEdit;
     lstCustomers: TListBox;
     btnAddCustomer: TSpeedButton;
-    plspBridge: TJvStandardPage;
     lstSwitchInfo: TListBox;
     swKitchen: TJvSwitch;
     swBathroom: TJvSwitch;
     lblKitchenSwitch: TLabel;
     lblBathroomSwitch: TLabel;
-    plspBuilder: TJvStandardPage;
     btnMeal1: TButton;
     lstMeals: TListBox;
     btnMeal2: TButton;
-    plspChainOfResponsibility: TJvStandardPage;
     btnHandleRequests: TButton;
     lstHandlerOutput: TListBox;
+    plspAbstractFactory: TJvStandardPage;
+    plspAdapter: TJvStandardPage;
+    plspBridge: TJvStandardPage;
+    plspBuilder: TJvStandardPage;
+    plspChainOfResponsibility: TJvStandardPage;
+    plspCommand: TJvStandardPage;
+    plspFactoryMethod: TJvStandardPage;
+    plspObjectPool: TJvStandardPage;
+    plspPrototype: TJvStandardPage;
+    plspSingleton: TJvStandardPage;
+    plspComposite: TJvStandardPage;
+    plspDecorator: TJvStandardPage;
+    plspFacade: TJvStandardPage;
+    plspFlyweight: TJvStandardPage;
+    plspPrivateClassData: TJvStandardPage;
+    plspProxy: TJvStandardPage;
+    plspInterpreter: TJvStandardPage;
+    plspIterator: TJvStandardPage;
+    plspMediator: TJvStandardPage;
+    plspMemento: TJvStandardPage;
+    plspNullObject: TJvStandardPage;
+    plspObserver: TJvStandardPage;
+    plspState: TJvStandardPage;
+    plspStrategy: TJvStandardPage;
+    plspTemplateMethod: TJvStandardPage;
+    plspVisitor: TJvStandardPage;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
