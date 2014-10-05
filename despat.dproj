@@ -103,6 +103,9 @@
         <DCCReference Include="Command\Command.pas"/>
         <DCCReference Include="Command\Receiver.pas"/>
         <DCCReference Include="Command\Invoker.pas"/>
+        <DCCReference Include="Composite\Component.pas"/>
+        <DCCReference Include="Composite\Composite.pas"/>
+        <DCCReference Include="Composite\Leaf.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

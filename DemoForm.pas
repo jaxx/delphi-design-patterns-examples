@@ -72,6 +72,8 @@ type
     edtOrderName: TEdit;
     btnAddOrder: TButton;
     lstCookWorkLog: TListBox;
+    mmoStructure: TMemo;
+    btnCreateTreeStructure: TButton;
     procedure btnCreateCarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnAddCustomerClick(Sender: TObject);
@@ -85,6 +87,7 @@ type
     procedure btnHandleRequestsClick(Sender: TObject);
     procedure edtOrderNameChange(Sender: TObject);
     procedure btnAddOrderClick(Sender: TObject);
+    procedure btnCreateTreeStructureClick(Sender: TObject);
   private
     FSwitchAbstraction: TSwitchAbstraction;
     FKitchenSwitch: ISwitch;
@@ -110,7 +113,9 @@ uses
   BuilderInterfaces,
   Invoker,
   Command,
-  Receiver;
+  Receiver,
+  Composite,
+  Leaf;
 
 {$R *.dfm}
 
@@ -306,6 +311,41 @@ begin
 
   edtOrderName.SetFocus;
   edtOrderName.Clear;
+end;
+
+{ Composite }
+
+procedure TfrmDemo.btnCreateTreeStructureClick(Sender: TObject);
+var
+  root: TComposite;
+  compositeX: TComposite;
+  leaf: TLeaf;
+
+begin
+  mmoStructure.Clear;
+
+  root := TComposite.Create('root');
+  compositeX := TComposite.Create('Composite X');
+
+  try
+    root.Add(TLeaf.Create('Leaf A'));
+    root.Add(TLeaf.Create('Leaf B'));
+
+    compositeX.Add(TLeaf.Create('Leaf XA'));
+    compositeX.Add(TLeaf.Create('Leaf XB'));
+
+    root.Add(compositeX);
+    root.Add(TLeaf.Create('Leaf C'));
+
+    leaf := TLeaf.Create('Leaf D');
+
+    root.Add(leaf);
+    root.Remove(leaf);
+
+    mmoStructure.Lines.AddStrings(root.Display(1));
+  finally
+    root.Free;
+  end;
 end;
 
 end.

@@ -20,7 +20,7 @@ object frmDemo: TfrmDemo
     Top = 0
     Width = 510
     Height = 452
-    ActivePage = plspCommand
+    ActivePage = plspComposite
     PropagateEnable = False
     Align = alClient
     object plspAbstractFactory: TJvStandardPage
@@ -281,6 +281,22 @@ object frmDemo: TfrmDemo
       Width = 510
       Height = 452
       Caption = 'PageComposite'
+      object mmoStructure: TMemo
+        Left = 58
+        Top = 53
+        Width = 393
+        Height = 313
+        TabOrder = 0
+      end
+      object btnCreateTreeStructure: TButton
+        Left = 314
+        Top = 372
+        Width = 139
+        Height = 28
+        Caption = 'Create tree structure'
+        TabOrder = 1
+        OnClick = btnCreateTreeStructureClick
+      end
     end
     object plspDecorator: TJvStandardPage
       Left = 0

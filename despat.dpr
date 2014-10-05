@@ -18,7 +18,10 @@ uses
   Handler in 'ChainOfResponsibility\Handler.pas',
   Command in 'Command\Command.pas',
   Receiver in 'Command\Receiver.pas',
-  Invoker in 'Command\Invoker.pas';
+  Invoker in 'Command\Invoker.pas',
+  Component in 'Composite\Component.pas',
+  Composite in 'Composite\Composite.pas',
+  Leaf in 'Composite\Leaf.pas';
 
 {$R *.res}
 
